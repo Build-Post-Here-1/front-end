@@ -5,4 +5,7 @@ export default function registerUser(userObj) {
         .then(res => {
             console.log(res.data)
         })
+        .catch(err => {
+            console.log(err)
+        })
 }
