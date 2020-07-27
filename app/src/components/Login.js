@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import formSchema from './formSchema'
+import formSchema from '../formSchema'
 
 import * as yup from 'yup'
 
-function Login(props) {
+export default function Login(props) {
 
     const initialState = {
         username: '',
@@ -68,4 +68,3 @@ function Login(props) {
     )
 }
 
-export default Login
