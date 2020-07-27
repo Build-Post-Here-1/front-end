@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import formSchema from './formSchema'
+import * as yup from 'yup'
 
 function Register(props) {
     const initialState = {
@@ -6,10 +8,41 @@ function Register(props) {
         password: ''
     }
 
+    const [errorInfo, setErrorInfo] = useState({
+        username: '',
+        password: ''
+    })
     const [credentials, setCredentials] = useState(initialState)
+    const [disabled, setDisabled] = useState(true)
+
+    useEffect(() => {
+        formSchema.isValid(credentials).then(valid => {
+            setDisabled(!valid)
+        })
+    }, [credentials])
 
     const handleInputChange = e => {
         const { name, value } = e.target
+
+        yup
+            .reach(formSchema, name)
+
+            .validate(value)
+
+            .then(valid => {
+                setErrorInfo({
+                    ...errorInfo,
+                    [name]: ''
+                })
+            })
+
+            .catch(err => {
+                setErrorInfo({
+                    ...errorInfo,
+                    [name]: err.errors[0]
+                })
+            })
+
         setCredentials({
             ...credentials,
             [name]: value
@@ -18,7 +51,11 @@ function Register(props) {
 
     const handleSubmit = e => {
         e.preventDefault()
-        console.log(credentials)
+        const user = {
+            username: credentials.username,
+            password: credentials.password
+        }
+        console.log(user)
     }
 
     return (
@@ -26,7 +63,7 @@ function Register(props) {
             <form onSubmit={handleSubmit}>
                 <input onChange={handleInputChange} value={credentials.username} type="text" name="username" placeholder="username" />
                 <input onChange={handleInputChange} value={credentials.password} type="password" name="password" placeholder="password" />
-                <button>Register</button>
+                <button disabled={disabled}>Register</button>
             </form>
         </div>
     )

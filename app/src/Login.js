@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import formSchema from './formSchema'
 
+import * as yup from 'yup'
+
 function Login(props) {
 
     const initialState = {
         username: '',
         password: ''
     }
+
+    const [errorInfo, setErrorInfo] = useState({
+        username: '',
+        password: ''
+    })
 
     const [credentials, setCredentials] = useState(initialState)
     const [disabled, setDisabled] = useState(true)
@@ -19,6 +26,26 @@ function Login(props) {
 
     const handleInputChange = e => {
         const { name, value } = e.target
+
+        yup
+            .reach(formSchema, name)
+
+            .validate(value)
+
+            .then(valid => {
+                setErrorInfo({
+                    ...errorInfo,
+                    [name]: ''
+                })
+            })
+
+            .catch(err => {
+                setErrorInfo({
+                    ...errorInfo,
+                    [name]: err.errors[0]
+                })
+            })
+
         setCredentials({
             ...credentials,
             [name]: value
