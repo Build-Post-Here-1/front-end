@@ -7,13 +7,14 @@ import './App.css';
 function App() {
   return (
     <div className="App">
+       <Router>
       <NavLink exact to ='/login'>
         Login
       </NavLink>
       <NavLink exact to ='/signUp'>
         Sign-Up
       </NavLink>
-      <Router>
+     
         <Switch>
             <Route exact path ='/login'>
 
