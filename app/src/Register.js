@@ -16,12 +16,14 @@ function Register(props) {
     const [credentials, setCredentials] = useState(initialState)
     const [disabled, setDisabled] = useState(true)
 
+    //validate user input for every key stroke by user
     useEffect(() => {
         formSchema.isValid(credentials).then(valid => {
             setDisabled(!valid)
         })
     }, [credentials])
 
+    //validate all inputs with schema and enable the submit button when user meets all criterias set by schema.
     const handleInputChange = e => {
         const { name, value } = e.target
 

@@ -1,5 +1,5 @@
 import * as yup from 'yup'
-
+//determine the amount of characters a user will need for the username and password
 const formSchema = yup.object().shape({
     username: yup
         .string()

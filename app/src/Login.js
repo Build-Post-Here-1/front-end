@@ -18,12 +18,14 @@ function Login(props) {
     const [credentials, setCredentials] = useState(initialState)
     const [disabled, setDisabled] = useState(true)
 
+    //validate user input for each keystroke
     useEffect(() => {
         formSchema.isValid(credentials).then(valid => {
             setDisabled(!valid)
         })
     }, [credentials])
 
+    //validate all input fields with schema and enable the submit button if user meets criteria set by schema.
     const handleInputChange = e => {
         const { name, value } = e.target
 
@@ -51,6 +53,7 @@ function Login(props) {
             [name]: value
         })
     }
+
 
     const handleSubmit = e => {
         e.preventDefault()
