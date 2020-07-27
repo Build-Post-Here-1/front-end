@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import formSchema from './formSchema'
 import * as yup from 'yup'
+import registerUser from './registerHandler'
 
 function Register(props) {
     const initialState = {
@@ -55,7 +56,7 @@ function Register(props) {
             username: credentials.username,
             password: credentials.password
         }
-        console.log(user)
+        registerUser(credentials)
     }
 
     return (
