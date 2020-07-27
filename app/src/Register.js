@@ -66,6 +66,10 @@ function Register(props) {
                 <input onChange={handleInputChange} value={credentials.password} type="password" name="password" placeholder="password" />
                 <button disabled={disabled}>Register</button>
             </form>
+            <div>
+                {errorInfo.username.length > 0 ? <p>{errorInfo.username}</p> : null}
+                {errorInfo.password.length > 0 ? <p>{errorInfo.password}</p> : null}
+            </div>
         </div>
     )
 }
