@@ -13,7 +13,32 @@ function App() {
 
   return (
     <div className="App">
-    
+       <Router>
+      <NavLink exact to ='/login'>
+        Login
+      </NavLink>
+      <NavLink exact to ='/signUp'>
+        Sign-Up
+      </NavLink>
+      <NavLink exact to ='/profile'>
+        Profile
+      </NavLink>
+      
+        <Switch>
+            <Route exact path ='/login'>
+              <Login/>
+            </Route>
+            <Route exact path ='/signUp'>
+              <Register/>
+            </Route>
+            <PrivateRoute exact path ='/dashboard'>
+              <DashBoard/>
+            </PrivateRoute>
+            <PrivateRoute exact path ='/profile'>
+              <Profile/>
+            </PrivateRoute>
+        </Switch>
+      </Router>
     </div>
   );
 }
