@@ -17,11 +17,17 @@ function Login(props) {
         })
     }
 
+    const handleSubmit = e => {
+        e.preventDefault()
+        console.log(credentials)
+    }
+
     return (
         <div>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <input onChange={handleInputChange} value={credentials.username} type="text" name="username" placeholder="username" />
                 <input onChange={handleInputChange} value={credentials.password} type="password" name="password" placeholder="password" />
+                <button>Login</button>
             </form>
         </div>
     )

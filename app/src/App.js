@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch, NavLink } from 'react-router-dom'
 
 import Login from './Login'
+import Register from './Register'
 
 import logo from './logo.svg';
 import './App.css';
@@ -22,7 +23,7 @@ function App() {
             <Login />
           </Route>
           <Route exact path='/signUp'>
-
+            <Register />
           </Route>
         </Switch>
       </Router>
