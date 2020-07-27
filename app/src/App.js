@@ -1,10 +1,16 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch , NavLink} from 'react-router-dom'
 
+import PrivateRoute from './components/PrivateRoute'
+import DashBoard from './components/DashBoard'
+import Profile from './components/Profile'
+
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+
   return (
     <div className="App">
        <Router>
@@ -14,7 +20,10 @@ function App() {
       <NavLink exact to ='/signUp'>
         Sign-Up
       </NavLink>
-     
+      <NavLink exact to ='/profile'>
+        Profile
+      </NavLink>
+      
         <Switch>
             <Route exact path ='/login'>
 
@@ -22,6 +31,12 @@ function App() {
             <Route exact path ='/signUp'>
 
             </Route>
+            <PrivateRoute exact path ='/dashboard'>
+              <DashBoard/>
+            </PrivateRoute>
+            <PrivateRoute exact path ='/profile'>
+              <Profile/>
+            </PrivateRoute>
         </Switch>
       </Router>
     </div>
