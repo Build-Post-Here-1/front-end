@@ -10,7 +10,6 @@ const formSchema = yup.object().shape({
         .string()
         .required()
         .min(4, 'Password must be at least 4 characters long')
-
 })
 
 export default formSchema

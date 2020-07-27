@@ -59,6 +59,7 @@ function Register(props) {
             password: credentials.password
         }
         registerUser(credentials)
+        setCredentials(initialState)
     }
 
     return (
@@ -69,8 +70,8 @@ function Register(props) {
                 <button disabled={disabled}>Register</button>
             </form>
             <div>
-                {errorInfo.username.length > 0 ? <p>{errorInfo.username}</p> : null}
-                {errorInfo.password.length > 0 ? <p>{errorInfo.password}</p> : null}
+                {errorInfo.username.length > 0 && <p>{errorInfo.username}</p>}
+                {errorInfo.password.length > 0 && <p>{errorInfo.password}</p>}
             </div>
         </div>
     )
