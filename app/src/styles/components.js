@@ -3,10 +3,20 @@ import styled from 'styled-components'
 export const Container = styled.div`
     border-radius: 12px;
     box-shadow: 0 0 8px 1px #d8d8d8;
-    width: 51%;
+    width: 40%;
     margin: 5% auto;
     padding: 2% 2.5%;
     position: relative;
+
+    @media(max-width: 900px) {
+        width: 50%;
+    }
+
+    @media (max-width: 450px) {
+        width: 95%;
+        box-shadow: none;
+        border-radius: 0;
+    }
 `
 
 export const Header = styled.h1`
@@ -36,8 +46,8 @@ export const Button = styled.button`
     border-radius: 50px;
     background: #084c61;
     color: #fff;
-    width: 25%;
-    margin: 1.5% auto;
+    width: 45%;
+    margin: 4.5% auto;
     padding: 2.2%;
     transition: 200ms;
 
@@ -63,6 +73,10 @@ export const Banner = styled.div`
     right: 0;
     border-bottom-right-radius: 12px;
     border-bottom-left-radius: 12px;
+
+    @media(max-width: 450px) {
+        border-radius: 0;
+    }
 `
 
 export const Errors = styled.div`
