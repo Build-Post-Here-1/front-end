@@ -20,7 +20,7 @@ export const Container = styled.div`
     }
 
     a {
-        color: #607d8b;
+        color: #a877ff;
         text-decoration: none;
         font-weight: 500;
     }
@@ -28,6 +28,7 @@ export const Container = styled.div`
 
 export const Header = styled.h1`
     font-weight: bolder;
+    font-weight: bold;
 `
 
 export const Form = styled.form`
@@ -54,7 +55,7 @@ export const Input = styled.input`
 `
 
 export const Button = styled.button`
-    border: none;
+    border: 1px solid #FF4500;
     border-radius: 50px;
     background: #FF4500;
     color: #fff;
@@ -68,7 +69,9 @@ export const Button = styled.button`
     }
 
     &:disabled {
-        background: #f5bda9;
+        background: transparent;
+        border: 1px solid #dadada;
+        color: #dadada;
         cursor: not-allowed;
         transition: 200ms;
     }
@@ -83,7 +86,7 @@ export const Button = styled.button`
 `
 
 export const Banner = styled.div`
-    background: #323031;
+    background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
     color: #fff;
     padding: 1% 0;
     width: 100%;
@@ -104,6 +107,6 @@ export const Errors = styled.div`
 `
 
 export const ErrorP = styled.p`
-    color: #db3a34;
+    color: #FF4500;
     margin: 1% 0;
 `

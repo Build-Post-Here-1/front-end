@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import * as yup from 'yup'
 
 import { Container, Header, Form, Input, Button, Banner, Errors, ErrorP } from '../styles/components'
 import formSchema from '../formSchema'
 
-import * as yup from 'yup'
 
 export default function Login(props) {
 

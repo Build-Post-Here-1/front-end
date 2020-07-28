@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import formSchema from '../formSchema'
 import * as yup from 'yup'
-import registerUser from '../registerHandler'
 
+import formSchema from '../formSchema'
+import registerUser from '../registerHandler'
 import { Container, Header, Form, Input, Button, Banner, Errors, ErrorP } from '../styles/components'
 
 export default function Register(props) {

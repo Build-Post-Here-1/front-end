@@ -20,15 +20,15 @@ function App() {
 
         <NavLink exact to='/login'>
           Login
-      </NavLink>
+        </NavLink>
 
         <NavLink exact to='/signUp'>
           Sign-Up
-      </NavLink>
+        </NavLink>
 
         <NavLink exact to='/profile'>
           Profile
-      </NavLink>
+        </NavLink>
 
         <Switch>
           <Route exact path='/login'>
