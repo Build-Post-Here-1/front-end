@@ -2,6 +2,39 @@ import React, { useState, useEffect } from 'react'
 import formSchema from './formSchema'
 
 import * as yup from 'yup'
+import styled from 'styled-components'
+
+const Container = styled.div`
+    border: 1px solid black;
+`
+
+const Form = styled.form`
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 50%;
+    margin: auto;
+`
+
+const Input = styled.input`
+    background: #ececec;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: 2%;
+    margin: 1.5% auto;
+    width: 80%;
+`
+
+const Button = styled.button`
+    border: none;
+    border-radius: 50px;
+    background: #5E42A6;
+    color: #fff;
+    width: 25%;
+    margin: 1.5% auto;
+    padding: 2.2%;
+`
 
 function Login(props) {
 
@@ -61,17 +94,17 @@ function Login(props) {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <input onChange={handleInputChange} value={credentials.username} type="text" name="username" placeholder="username" />
-                <input onChange={handleInputChange} value={credentials.password} type="password" name="password" placeholder="password" />
-                <button disabled={disabled}>Login</button>
-            </form>
+        <Container>
+            <Form onSubmit={handleSubmit}>
+                <Input onChange={handleInputChange} value={credentials.username} type="text" name="username" placeholder="username" />
+                <Input onChange={handleInputChange} value={credentials.password} type="password" name="password" placeholder="password" />
+                <Button disabled={disabled}>Login</Button>
+            </Form>
             <div>
                 {errorInfo.username.length > 0 ? <p>{errorInfo.username}</p> : null}
                 {errorInfo.password.length > 0 ? <p>{errorInfo.password}</p> : null}
             </div>
-        </div>
+        </Container>
     )
 }
 
