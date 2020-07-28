@@ -34,6 +34,15 @@ const Button = styled.button`
     width: 25%;
     margin: 1.5% auto;
     padding: 2.2%;
+
+    &:hover {
+        cursor: pointer;
+    }
+    
+    &:disabled {
+        background: #c4adff;
+        cursor: not-allowed;
+    }
 `
 
 function Login(props) {
