@@ -68,7 +68,7 @@ export default function Register(props) {
     return (
         <Container>
             <Header>Register</Header>
-            <Form onSubmit={handleSubmit}>
+            <Form autoComplete="off" onSubmit={handleSubmit}>
                 <Input onChange={handleInputChange} value={credentials.username} type="text" name="username" placeholder="username" />
                 <Input onChange={handleInputChange} value={credentials.password} type="password" name="password" placeholder="password" />
                 <Button disabled={disabled}>Register</Button>
