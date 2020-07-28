@@ -8,7 +8,7 @@ const formSchema = yup.object().shape({
 
     password: yup
         .string()
-        .required()
+        .required('You must enter a password')
         .min(4, 'Password must be at least 4 characters long')
 })
 

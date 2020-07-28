@@ -1,53 +1,9 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import formSchema from './formSchema'
+import { Container, Header, Form, Input, Button, Banner, Errors, ErrorP } from './styles/components'
 
 import * as yup from 'yup'
-import styled from 'styled-components'
-
-const Container = styled.div`
-    border: 1px solid black;
-`
-
-const Header = styled.h1`
-    font-weight: bolder;
-`
-
-const Form = styled.form`
-    /* border: 1px solid red; */
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    width: 50%;
-    margin: auto;
-`
-
-const Input = styled.input`
-    background: #ececec;
-    border: 1px solid transparent;
-    border-radius: 5px;
-    padding: 2%;
-    margin: 1.5% auto;
-    width: 80%;
-`
-
-const Button = styled.button`
-    border: none;
-    border-radius: 50px;
-    background: #5E42A6;
-    color: #fff;
-    width: 25%;
-    margin: 1.5% auto;
-    padding: 2.2%;
-
-    &:hover {
-        cursor: pointer;
-    }
-
-    &:disabled {
-        background: #c4adff;
-        cursor: not-allowed;
-    }
-`
 
 function Login(props) {
 
@@ -114,10 +70,13 @@ function Login(props) {
                 <Input onChange={handleInputChange} value={credentials.password} type="password" name="password" placeholder="password" />
                 <Button disabled={disabled}>Login</Button>
             </Form>
-            <div>
-                {errorInfo.username.length > 0 ? <p>{errorInfo.username}</p> : null}
-                {errorInfo.password.length > 0 ? <p>{errorInfo.password}</p> : null}
-            </div>
+            <Errors>
+                {errorInfo.username.length > 0 ? <ErrorP>{errorInfo.username}</ErrorP> : null}
+                {errorInfo.password.length > 0 ? <ErrorP>{errorInfo.password}</ErrorP> : null}
+            </Errors>
+            <Banner>
+                Don't have an account?  <Link to='/signUp'>Register here!</Link>
+            </Banner>
         </Container>
     )
 }
