@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import formSchema from './formSchema'
-import { Container, Header, Form, Input, Button, Banner, Errors, ErrorP } from './styles/components'
+
+import { Container, Header, Form, Input, Button, Banner, Errors, ErrorP } from '../styles/components'
+import formSchema from '../formSchema'
 
 import * as yup from 'yup'
 
-function Login(props) {
+export default function Login(props) {
 
     const initialState = {
         username: '',
@@ -65,7 +66,7 @@ function Login(props) {
     return (
         <Container>
             <Header>Log in</Header>
-            <Form onSubmit={handleSubmit}>
+            <Form autoComplete="off" onSubmit={handleSubmit}>
                 <Input onChange={handleInputChange} value={credentials.username} type="text" name="username" placeholder="username" />
                 <Input onChange={handleInputChange} value={credentials.password} type="password" name="password" placeholder="password" />
                 <Button disabled={disabled}>Login</Button>
@@ -81,4 +82,3 @@ function Login(props) {
     )
 }
 
-export default Login

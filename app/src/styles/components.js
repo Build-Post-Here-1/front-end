@@ -47,12 +47,17 @@ export const Input = styled.input`
     padding: 2%;
     margin: 1.5% auto;
     width: 70%;
+
+    &:focus {
+        outline: none;
+        border: 2px solid #FF4500;
+    }
 `
 
 export const Button = styled.button`
     border: none;
     border-radius: 50px;
-    background: #084c61;
+    background: #FF4500;
     color: #fff;
     width: 25%;
     margin: 4.5% auto;
