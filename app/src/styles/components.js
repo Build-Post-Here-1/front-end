@@ -2,7 +2,9 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
     border-radius: 12px;
-    box-shadow: 0 0 8px 1px #d8d8d8;
+    box-shadow: 0 0 13px 1px #7d7d7d;
+    background: #fff;
+    font-weight: 300;
     width: 40%;
     margin: 5% auto;
     padding: 2% 2.5%;
@@ -16,6 +18,12 @@ export const Container = styled.div`
         width: 95%;
         box-shadow: none;
         border-radius: 0;
+    }
+
+    a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
     }
 `
 
@@ -46,7 +54,7 @@ export const Button = styled.button`
     border-radius: 50px;
     background: #084c61;
     color: #fff;
-    width: 45%;
+    width: 25%;
     margin: 4.5% auto;
     padding: 2.2%;
     transition: 200ms;
@@ -59,6 +67,14 @@ export const Button = styled.button`
         background: #e8e8e8;
         cursor: not-allowed;
         transition: 200ms;
+    }
+
+    @media(max-width: 900px) {
+        width: 30%;
+    }
+
+    @media(max-width: 450px) {
+        width: 50%;
     }
 `
 
