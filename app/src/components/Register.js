@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import formSchema from '../formSchema'
 import * as yup from 'yup'
 import registerUser from '../registerHandler'
+
+import { Container, Header, Form, Input, Button, Banner, Errors, ErrorP } from '../styles/components'
 
 export default function Register(props) {
     const initialState = {
@@ -63,17 +66,21 @@ export default function Register(props) {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <input onChange={handleInputChange} value={credentials.username} type="text" name="username" placeholder="username" />
-                <input onChange={handleInputChange} value={credentials.password} type="password" name="password" placeholder="password" />
-                <button disabled={disabled}>Register</button>
-            </form>
-            <div>
-                {errorInfo.username.length > 0 && <p>{errorInfo.username}</p>}
-                {errorInfo.password.length > 0 && <p>{errorInfo.password}</p>}
-            </div>
-        </div>
+        <Container>
+            <Header>Register</Header>
+            <Form onSubmit={handleSubmit}>
+                <Input onChange={handleInputChange} value={credentials.username} type="text" name="username" placeholder="username" />
+                <Input onChange={handleInputChange} value={credentials.password} type="password" name="password" placeholder="password" />
+                <Button disabled={disabled}>Register</Button>
+            </Form>
+            <Errors>
+                {errorInfo.username.length > 0 ? <ErrorP>{errorInfo.username}</ErrorP> : null}
+                {errorInfo.password.length > 0 ? <ErrorP>{errorInfo.password}</ErrorP> : null}
+            </Errors>
+            <Banner>
+                Already a member?  <Link to='/login'>Log in</Link>
+            </Banner>
+        </Container>
     )
 }
 

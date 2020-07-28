@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
     border-radius: 12px;
-    box-shadow: 0 0 13px 1px #7d7d7d;
     background: #fff;
     font-weight: 300;
     width: 40%;
@@ -21,7 +20,7 @@ export const Container = styled.div`
     }
 
     a {
-        color: #fff;
+        color: #607d8b;
         text-decoration: none;
         font-weight: 500;
     }
@@ -69,7 +68,7 @@ export const Button = styled.button`
     }
 
     &:disabled {
-        background: #e8e8e8;
+        background: #f5bda9;
         cursor: not-allowed;
         transition: 200ms;
     }
