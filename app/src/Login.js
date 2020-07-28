@@ -8,6 +8,10 @@ const Container = styled.div`
     border: 1px solid black;
 `
 
+const Header = styled.h1`
+    font-weight: bolder;
+`
+
 const Form = styled.form`
     /* border: 1px solid red; */
     display: flex;
@@ -38,7 +42,7 @@ const Button = styled.button`
     &:hover {
         cursor: pointer;
     }
-    
+
     &:disabled {
         background: #c4adff;
         cursor: not-allowed;
@@ -104,6 +108,7 @@ function Login(props) {
 
     return (
         <Container>
+            <Header>Log in</Header>
             <Form onSubmit={handleSubmit}>
                 <Input onChange={handleInputChange} value={credentials.username} type="text" name="username" placeholder="username" />
                 <Input onChange={handleInputChange} value={credentials.password} type="password" name="password" placeholder="password" />
