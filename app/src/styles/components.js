@@ -104,7 +104,7 @@ export const Button = styled.button`
 `
 
 export const Banner = styled.div`
-    background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+    background: linear-gradient(90deg, #FF4301 0%, #FACC96  100%);
     color: #272727;
     padding: 1% 0;
     width: 100%;
