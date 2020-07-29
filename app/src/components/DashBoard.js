@@ -94,7 +94,7 @@ const handleChanges = e => {
     const savepost = e => {
         e.preventDefault()
         axiosWithAuth()
-        .post(`https://postit-user-app.herokuapp.com/subs/savepost/${subName.subname}`,posts )
+        .post(`https://postit-user-app.herokuapp.com/subs/savepost/${toSave.title}`,posts )
         .then( res => {
             console.log(res)
            
@@ -123,7 +123,7 @@ const handleSearch = e => {
     const handleSubSearch = e => {
         e.preventDefault()
         axiosWithAuth()
-        .get(`https://postit-user-app.herokuapp.com/subs/getposts/${subName.subname}`)
+        .get(`https://postit-user-app.herokuapp.com/subs/getposts/${toSave.title}`)
         .then(res => {
             console.log(res.data.data.children)
             const posts = res.data.data.children
@@ -163,6 +163,8 @@ const handleSearch = e => {
                         />
                         <button> Search </button>
                         <button onClick={saveItem}> Save Subbreddit to Profile</button>
+                        <button onClick={handleSubSearch}>Show me Posts</button>
+                        <button onClick={savepost}>Save Posts Profile</button>
                     </label>
                     </Form>
 
@@ -191,14 +193,14 @@ const handleSearch = e => {
                    return(
                 <Card2 key={rec.id}>
                     <p>{rec}</p>
-
+                <label> Save to Profile?
                     <input
                     type='checkbox'
                     name='title'
                     value={rec}
                     onClick={handleClick}
                     />
-
+                </label>
                 </Card2>    
                 )})
             ) }
