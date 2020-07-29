@@ -2,7 +2,7 @@ import React  , {useEffect , useState} from 'react'
 import {connect} from  'react-redux'
 import {fetchProfile} from '../actions/actions'
 
-
+import { Card ,Container , Input} from '../styles/styles'
 
 import axiosWithAuth from '../utils/axiosWithAuth'
 
@@ -12,67 +12,12 @@ import axios from 'axios'
      search: ''
  }
  
-// const initialSubreddit = { 
-//     title: '', 
-//     description: '',
-// }
-
-// const posts = []
-// const savedPosts =[]
 
 const Profile = props => {
  const [ search , setSearch] = useState(initialState)
  const [subreddit , Setsubreddit] = useState([])
 
-
-// const subreddit  = (( props.user || {}).usersubs || {}).subreddit
-
- console.log(props.user.usersubs)
-
-
-
-// const data = props.user.forEach( e =>  posts.push(e.subreddit.savedposts))
-// const newData = posts.forEach( e => savedPosts.push(e))
-// console.log(posts)
-// console.log(savedPosts)
-
-
-
-
-
-
-
-
-    // const data =   props.user.map( post => {
-    //     return post 
-    //         })
-
-    // console.log(data)
-
-    // const title = data.map( post => {
-    // return post.subreddit.title
-
-    // })
-    
-    // const description = data.map( post => {
-    //     return post.subreddit.description
-    //     })
-
-    //  const post = data.map( post => {
-    //         return post.subreddit.savedposts
-    //         })
-    //     console.log(post)
-
-    // const savedPost = data.map( post => {
-
-    // } )
-    //     console.log(savedPost)
-
-
-    // console.log(props)
-
-
-
+ 
 
 
 
@@ -91,21 +36,31 @@ const Profile = props => {
 
 
 
-    const handleSearch = () => {
+    const handleSearch = e => {
+        e.preventDefault()
         axiosWithAuth()
-        .get()
-        // .filter( search ===  )
-        .then( res => console.log())
+        .get(`posts/searchPosts/${search.search}`)
+        .then( res => console.log(res))
+        .catch(err => console.log(err)) 
     }
+
 
   
     return (
         <div>
             <h1>My Profile</h1>
+
+            <img
+                src={props.user.avatar}
+                alt='thumbnail'
+                id='profilePic'
+                />
+            <h3>Welcome {props.user.username}</h3>
+
             <h2>Saved Posts</h2>
           
-        <form>
-            <input
+        <form onSubmit={handleSearch}>
+            <Input
                 type='text'
                 name='search'
                 value={search.search}
@@ -115,6 +70,8 @@ const Profile = props => {
             <button>Search Posts</button>
         </form>
 
+        <h2>Here are your saved posts</h2>
+
         {props.isLoading && <h4>Loading your Data...</h4>}
             {props.error && (<p className="error"> Uh oh we can't find your profile...{props.error}</p>)}
            
@@ -122,7 +79,7 @@ const Profile = props => {
                     
                     {
                      props.user.usersubs !== undefined ?   props.user.usersubs.map( e => {
-                        console.log(e.subreddit.subid)
+                        
 
                             
                         const handleDelete = () => {
@@ -137,22 +94,27 @@ const Profile = props => {
 
 
                         return(
-                    <div>
-
-                     <p>{e.subreddit.title}</p>
-                     <p>{e.subreddit.description}</p>
-                     
-                     {e.subreddit.savedposts.map( e => {
-                         console.log(e)
-                         return (
+                <Container>
+                    
+                     <Card>
                         <div>
-                            <p>{e.posts.selftext}</p>
-                            <p>{e.posts.title}</p>
-                            <button onClick={handleDelete}> Delete </button>
-                        </div>
+
+                        <p>{e.subreddit.title}</p>
+                        <p>{e.subreddit.description}</p>
+                        
+                        {e.subreddit.savedposts.map( e => {
+                           
+                            return (
+                            <div>
+                                <p>{e.posts.selftext}</p>
+                                <p>{e.posts.title}</p>
+                                <button onClick={handleDelete}> Delete </button>
+                            </div>
                          )
                      })}
                      </div>
+                     </Card>
+                </Container>
                      )}) : ''
                     
                         
