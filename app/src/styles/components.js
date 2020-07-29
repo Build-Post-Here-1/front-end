@@ -4,13 +4,25 @@ export const Container = styled.div`
     border-radius: 12px;
     background: #fff;
     font-weight: 300;
-    width: 40%;
+    width: 30%;
     margin: 5% auto;
     padding: 2% 2.5%;
     position: relative;
 
+    @media(max-width: 930px) {
+        width: 40%;
+    }
+
     @media(max-width: 900px) {
         width: 50%;
+    }
+
+    @media(max-width: 560px) {
+        width: 62%;
+    }
+
+    @media(max-width: 485px) {
+        width: 80%;
     }
 
     @media (max-width: 470px) {
