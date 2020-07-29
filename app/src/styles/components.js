@@ -13,7 +13,7 @@ export const Container = styled.div`
         width: 50%;
     }
 
-    @media (max-width: 450px) {
+    @media (max-width: 470px) {
         width: 95%;
         box-shadow: none;
         border-radius: 0;
@@ -38,6 +38,7 @@ export const Form = styled.form`
     flex-wrap: wrap;
     width: 100%;
     margin: auto;
+    position: relative;
 `
 
 export const Input = styled.input`
@@ -47,10 +48,15 @@ export const Input = styled.input`
     padding: 2%;
     margin: 1.5% auto;
     width: 70%;
+    text-indent: 1.5rem;
 
     &:focus {
         outline: none;
         border: 2px solid #FF4500;
+        &+span {
+            color: #656565;
+            transition: 150ms;
+        }
     }
 `
 
@@ -80,14 +86,14 @@ export const Button = styled.button`
         width: 30%;
     }
 
-    @media(max-width: 450px) {
+    @media(max-width: 470px) {
         width: 50%;
     }
 `
 
 export const Banner = styled.div`
     background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
-    color: #fff;
+    color: #272727;
     padding: 1% 0;
     width: 100%;
     position: absolute;
@@ -97,7 +103,7 @@ export const Banner = styled.div`
     border-bottom-right-radius: 12px;
     border-bottom-left-radius: 12px;
 
-    @media(max-width: 450px) {
+    @media(max-width: 470px) {
         border-radius: 0;
     }
 `
@@ -109,4 +115,24 @@ export const Errors = styled.div`
 export const ErrorP = styled.p`
     color: #FF4500;
     margin: 1% 0;
+`
+
+export const PasswordIcon = styled.span`
+    font-weight: 900;
+    color: #b9b9b9;
+    font-size: 1rem;
+    position: absolute;
+    top: 37%;
+    left: 15%;
+    transition: 200ms;
+`
+
+export const UserIcon = styled.span`
+    font-weight: 900;
+    color: #b9b9b9;
+    font-size: 1rem;
+    position: absolute;
+    top: 9.5%;
+    left: 15%;
+    transition: 200ms;
 `

@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
+@import url("//use.fontawesome.com/releases/v5.6.1/css/all.css'");
 
 body {
   margin: 0;
-  font-family: 'Poppins';
   background: #ececec;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
+*:not(i) {
   font-family: 'Lexend Deca';
 }
 

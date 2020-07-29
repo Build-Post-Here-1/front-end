@@ -4,7 +4,7 @@ import * as yup from 'yup'
 
 import formSchema from '../formSchema'
 import registerUser from '../registerHandler'
-import { Container, Header, Form, Input, Button, Banner, Errors, ErrorP } from '../styles/components'
+import { Container, Header, Form, Input, Button, Banner, Errors, ErrorP, UserIcon, PasswordIcon } from '../styles/components'
 
 export default function Register(props) {
     const initialState = {
@@ -70,7 +70,9 @@ export default function Register(props) {
             <Header>Register</Header>
             <Form autoComplete="off" onSubmit={handleSubmit}>
                 <Input onChange={handleInputChange} value={credentials.username} type="text" name="username" placeholder="username" />
+                <UserIcon className="fas fa-user"></UserIcon>
                 <Input onChange={handleInputChange} value={credentials.password} type="password" name="password" placeholder="password" />
+                <PasswordIcon className="fas fa-unlock"></PasswordIcon>
                 <Button disabled={disabled}>Register</Button>
             </Form>
             <Errors>
