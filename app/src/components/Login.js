@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import formSchema from '../formSchema'
+import axiosWithAuth from '../utils/axiosWithAuth'
+
+import axios from 'axios'
+
+import {useHistory } from 'react-router-dom'
 
 import * as yup from 'yup'
 
-export default function Login(props) {
+ function Login(props) {
+    const history = useHistory();
+    const { push } = history;
+
 
     const initialState = {
         username: '',
@@ -53,9 +61,21 @@ export default function Login(props) {
     }
 
     const handleSubmit = e => {
-        e.preventDefault()
-        console.log(credentials)
-    }
+        e.preventDefault();
+        axios
+        .post('https://postit-user-app.herokuapp.com/login', `grant_type=password&username=${credentials.username}&password=${credentials.password}`, {
+          headers: {
+            // btoa is converting our client id/client secret into base64
+            Authorization: `Basic ${btoa('lambda-client:lambda-secret')}`,
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        })
+        .then(res => {
+          console.log(res.data)
+          localStorage.setItem('token', res.data.access_token);
+          push('/profile');
+        })
+      }
 
     return (
         <div>
@@ -68,3 +88,4 @@ export default function Login(props) {
     )
 }
 
+export default Login
