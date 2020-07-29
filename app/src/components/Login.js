@@ -4,9 +4,17 @@ import * as yup from 'yup'
 
 import { Container, Header, Form, Input, Button, Banner, Errors, ErrorP, UserIcon, PasswordIcon } from '../styles/components'
 import formSchema from '../formSchema'
+import axiosWithAuth from '../utils/axiosWithAuth'
+
+import axios from 'axios'
+
+import {useHistory } from 'react-router-dom'
 
 
-export default function Login(props) {
+ function Login(props) {
+    const history = useHistory();
+    const { push } = history;
+
 
     const initialState = {
         username: '',
@@ -59,9 +67,21 @@ export default function Login(props) {
 
 
     const handleSubmit = e => {
-        e.preventDefault()
-        console.log(credentials)
-    }
+        e.preventDefault();
+        axios
+        .post('https://postit-user-app.herokuapp.com/login', `grant_type=password&username=${credentials.username}&password=${credentials.password}`, {
+          headers: {
+            // btoa is converting our client id/client secret into base64
+            Authorization: `Basic ${btoa('lambda-client:lambda-secret')}`,
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        })
+        .then(res => {
+          console.log(res.data)
+          localStorage.setItem('token', res.data.access_token);
+          push('/profile');
+        })
+      }
 
     return (
         <Container>
@@ -84,3 +104,4 @@ export default function Login(props) {
     )
 }
 
+export default Login

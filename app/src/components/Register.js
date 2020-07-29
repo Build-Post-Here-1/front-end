@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom'
 import * as yup from 'yup'
 
 import formSchema from '../formSchema'
-import registerUser from '../registerHandler'
 import { Container, Header, Form, Input, Button, Banner, Errors, ErrorP, UserIcon, PasswordIcon } from '../styles/components'
+import registerUser from './registerHandler'
 
-export default function Register(props) {
+
+function Register(props) {
+
     const initialState = {
         username: '',
         password: ''
@@ -86,3 +88,4 @@ export default function Register(props) {
     )
 }
 
+export default Register;

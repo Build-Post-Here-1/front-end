@@ -28,7 +28,10 @@ function App() {
 
         <NavLink exact to='/profile'>
           Profile
-        </NavLink>
+      </NavLink>
+        <NavLink exact to='/dashboard'>
+          DashBoard
+      </NavLink>
 
         <Switch>
           <Route exact path='/login'>
