@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import formSchema from '../formSchema'
 import * as yup from 'yup'
-import registerUser from '../registerHandler'
+import registerUser from './registerHandler'
 
-export default function Register(props) {
+
+function Register(props) {
+    
     const initialState = {
         username: '',
         password: ''
@@ -70,3 +72,4 @@ export default function Register(props) {
     )
 }
 
+export default Register;

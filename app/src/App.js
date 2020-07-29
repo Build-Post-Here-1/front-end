@@ -20,23 +20,26 @@ function App() {
 
         <NavLink exact to='/login'>
           Login
-      </NavLink>
+        </NavLink>
 
         <NavLink exact to='/signUp'>
           Sign-Up
-      </NavLink>
+        </NavLink>
 
       <NavLink exact to ='/profile'>
         Profile
       </NavLink>
+      <NavLink exact to ='/dashboard'>
+        DashBoard
+      </NavLink>
 
         <Switch>
             <Route exact path ='/login'>
-              {/* <Login/> */}
+              <Login/>
             </Route>
 
             <Route exact path ='/signUp'>
-              {/* <Register/> */}
+              <Register/>
             </Route>
 
             <PrivateRoute exact path ='/dashboard'>
