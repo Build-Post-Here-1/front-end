@@ -26,29 +26,29 @@ function App() {
           Sign-Up
         </NavLink>
 
-      <NavLink exact to ='/profile'>
-        Profile
+        <NavLink exact to='/profile'>
+          Profile
       </NavLink>
-      <NavLink exact to ='/dashboard'>
-        DashBoard
+        <NavLink exact to='/dashboard'>
+          DashBoard
       </NavLink>
 
         <Switch>
-            <Route exact path ='/login'>
-              <Login/>
-            </Route>
+          <Route exact path='/login'>
+            <Login />
+          </Route>
 
-            <Route exact path ='/signUp'>
-              <Register/>
-            </Route>
+          <Route exact path='/signUp'>
+            <Register />
+          </Route>
 
-            <PrivateRoute exact path ='/dashboard'>
-              <DashBoard/>
-            </PrivateRoute>
+          <PrivateRoute exact path='/dashboard'>
+            <DashBoard />
+          </PrivateRoute>
 
-            <PrivateRoute exact path ='/profile'>
-              <Profile/>
-            </PrivateRoute>
+          <PrivateRoute exact path='/profile'>
+            <Profile />
+          </PrivateRoute>
 
         </Switch>
 

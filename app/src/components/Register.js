@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import formSchema from '../formSchema'
+import { Link } from 'react-router-dom'
 import * as yup from 'yup'
+
+import formSchema from '../formSchema'
+import { Container, Header, Form, Input, Button, Banner, Errors, ErrorP, UserIcon, PasswordIcon } from '../styles/components'
 import registerUser from './registerHandler'
 
 
 function Register(props) {
-    
+
     const initialState = {
         username: '',
         password: ''
@@ -18,12 +21,14 @@ function Register(props) {
     const [credentials, setCredentials] = useState(initialState)
     const [disabled, setDisabled] = useState(true)
 
+    //validate user input for every key stroke by user
     useEffect(() => {
         formSchema.isValid(credentials).then(valid => {
             setDisabled(!valid)
         })
     }, [credentials])
 
+    //validate all inputs with schema and enable the submit button when user meets all criterias set by schema.
     const handleInputChange = e => {
         const { name, value } = e.target
 
@@ -59,16 +64,27 @@ function Register(props) {
             password: credentials.password
         }
         registerUser(credentials)
+        setCredentials(initialState)
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <input onChange={handleInputChange} value={credentials.username} type="text" name="username" placeholder="username" />
-                <input onChange={handleInputChange} value={credentials.password} type="password" name="password" placeholder="password" />
-                <button disabled={disabled}>Register</button>
-            </form>
-        </div>
+        <Container>
+            <Header>Register</Header>
+            <Form autoComplete="off" onSubmit={handleSubmit}>
+                <Input onChange={handleInputChange} value={credentials.username} type="text" name="username" placeholder="username" />
+                <UserIcon className="fas fa-user"></UserIcon>
+                <Input onChange={handleInputChange} value={credentials.password} type="password" name="password" placeholder="password" />
+                <PasswordIcon className="fas fa-unlock"></PasswordIcon>
+                <Button disabled={disabled}>Register</Button>
+            </Form>
+            <Errors>
+                {errorInfo.username.length > 0 ? <ErrorP>{errorInfo.username}</ErrorP> : null}
+                {errorInfo.password.length > 0 ? <ErrorP>{errorInfo.password}</ErrorP> : null}
+            </Errors>
+            <Banner>
+                Already a member?  <Link to='/login'>Log in</Link>
+            </Banner>
+        </Container>
     )
 }
 
