@@ -44,15 +44,12 @@ export const Input = styled.input`
 
 export const Container2 = styled.div `
 display:flex;
+justify-content: center;
 
 `
 
 export const Form = styled.form `
-    padding: 2%;
-    justify-content: center;
-    align-self: center;
-    align-content: center;
-    padding-left: 28%;
+  
     
     
 
@@ -65,11 +62,20 @@ margin: 1%;
 `
 
 export const Card2 = styled.div `
+width:fit-content;
+height: fit-content;
 box-sizing: border-box;
-display:flex;
-flex-direction: column;
-width: 50%;
-padding: 5%;
+margin: 3%;
+padding: 3%;
 box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 `
 
+
+export const BigContainer = styled.div `
+display:flex;
+padding-left: 2%;
+
+
+
+
+`
