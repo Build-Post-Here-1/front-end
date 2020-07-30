@@ -22,7 +22,6 @@ function Register(props) {
     })
     const [credentials, setCredentials] = useState(initialState)
     const [disabled, setDisabled] = useState(true)
-    const [success, setSuccess] = useState('')
 
     //validate user input for every key stroke by user
     useEffect(() => {
@@ -68,7 +67,7 @@ function Register(props) {
         }
         registerUser(credentials)
         setCredentials(initialState)
-        history.push('/login')
+        history.push('/dashboard')
     }
 
     return (
@@ -82,9 +81,8 @@ function Register(props) {
                 <Button disabled={disabled}>Register</Button>
             </Form>
             <Errors>
-                {errorInfo.username.length > 0 ? <ErrorP>{errorInfo.username}</ErrorP> : null}
-                {errorInfo.password.length > 0 ? <ErrorP>{errorInfo.password}</ErrorP> : null}
-                {success.length > 0 && <p>Your account was successfully created</p>}
+                {errorInfo.username.length > 0 && <ErrorP>{errorInfo.username}</ErrorP>}
+                {errorInfo.password.length > 0 && <ErrorP>{errorInfo.password}</ErrorP>}
             </Errors>
             <Banner>
                 Already a member?  <Link to='/login'>Log in</Link>

@@ -15,8 +15,6 @@ function Login(props) {
     const history = useHistory();
     const { push } = history;
 
-    console.log(history)
-
     const initialState = {
         username: '',
         password: ''
@@ -95,8 +93,8 @@ function Login(props) {
                 <Button disabled={disabled}>Login</Button>
             </Form>
             <Errors>
-                {errorInfo.username.length > 0 ? <ErrorP>{errorInfo.username}</ErrorP> : null}
-                {errorInfo.password.length > 0 ? <ErrorP>{errorInfo.password}</ErrorP> : null}
+                {errorInfo.username.length > 0 && <ErrorP>{errorInfo.username}</ErrorP>}
+                {errorInfo.password.length > 0 && <ErrorP>{errorInfo.password}</ErrorP>}
             </Errors>
             <Banner>
                 Don't have an account?  <Link to='/signUp'>Register here!</Link>
