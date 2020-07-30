@@ -101,20 +101,23 @@ const Profile = props => {
 
                         <p>{e.subreddit.title}</p>
                         <p>{e.subreddit.description}</p>
-                        
+                        <button onClick={handleDelete}> Delete </button>
                         {e.subreddit.savedposts.map( e => {
                            
                             return (
                             <div>
                                 <p>{e.posts.selftext}</p>
                                 <p>{e.posts.title}</p>
-                                <button onClick={handleDelete}> Delete </button>
+                              
                             </div>
                          )
                      })}
+                     
                      </div>
                      </Card>
+                     
                 </Container>
+               
                      )}) : ''
                     
                         
