@@ -4,7 +4,7 @@ import axiosWithAuth from '../utils/axiosWithAuth'
 import {connect} from  'react-redux'
 import {fetchNewData} from '../actions/actions'
 
-import {Container2 , Form , Input2, Card2 } from '../styles/styles'
+import {Container2 , Form , Input2, Card2 , BigContainer} from '../styles/styles'
 
 
 import axios from 'axios'
@@ -162,9 +162,6 @@ const handleSearch = e => {
                         onChange={handleChanges}
                         />
                         <button> Search </button>
-                        <button onClick={saveItem}> Save Subbreddit to Profile</button>
-                        <button onClick={handleSubSearch}>Show me Posts</button>
-                        <button onClick={savepost}>Save Posts Profile</button>
                     </label>
                     </Form>
 
@@ -183,55 +180,90 @@ const handleSearch = e => {
                     <button onClick={savepost}>Save Posts Profile</button>
                     </Form> */}
                 </Container2>
-            
-           
 
             {data.recommendations.length > 0 && (
+                 <h2>Here are some Subreddit's we reccomend</h2>
+                 
+            )}
+            
+            
+           <BigContainer>
+
+            {data.recommendations.length > 0 && (
+               
                data.recommendations.map( rec => {
                   
 
                    return(
-                <Card2 key={rec.id}>
-                    <p>{rec}</p>
-                <label> Save to Profile?
-                    <input
-                    type='checkbox'
-                    name='title'
-                    value={rec}
-                    onClick={handleClick}
-                    />
-                </label>
-                </Card2>    
+               
+                     <Card2 key={rec.id}>
+                            
+                                <p>{rec}</p>
+                                <label> Save to Profile?
+                                    <input
+                                    type='checkbox'
+                                    name='title'
+                                    value={rec}
+                                    onClick={handleClick}
+                                    />
+                                </label>
+                             
+                        </Card2>
+                        
                 )})
+            
             ) }
+            </BigContainer>
 
+            {data.recommendations.length > 0 && (
+                 <button onClick={saveItem}> Save Subbreddit to Profile</button>
+            )}
+             {data.recommendations.length > 0 && (
+                 <h2>Would you like to see posts based on this subbreddit? (save subbreddit to profile before proceeding)</h2>
+            )}
+
+            {data.recommendations.length > 0 && (
+                 <button onClick={handleSubSearch}> Show me Subbreddit Posts</button>
+            )}
+                
+            {props.savedPosts.length > 0 &&(
+                <button onClick={savepost}>Save Posts Profile</button>
+            )}
+             {props.savedPosts.length > 0 &&(
+                <p>Click both check boxes before proceeding</p>
+            )}
+            <BigContainer>
             {props.savedPosts.length > 0 && (
                props.savedPosts.map( res => {
                    console.log(res)
 
                    return(
-                <Card2>
-                    <p>{res.data.title}</p>
-                    <p>{res.data.selftext}</p>
+                
+              
+                    <Card2>
                     
-                    <input
-                    type='checkbox'
-                    name='selftext'
-                    value={res.data.selftext}
-                    onClick={handleClick2}
-                    />
-                      <input
-                    type='checkbox'
-                    name='title'
-                    value={res.data.title}
-                    onClick={handleClick2}
-                    />
-                    
-                   
-
-                </Card2>    
+                        <p>{res.data.title}</p>
+                        <p>{res.data.selftext}</p>
+                        
+                        <input
+                        type='checkbox'
+                        name='selftext'
+                        value={res.data.selftext}
+                        onClick={handleClick2}
+                        />
+                        <input
+                        type='checkbox'
+                        name='title'
+                        value={res.data.title}
+                        onClick={handleClick2}
+                        />
+                 
+                    </Card2>
+                 
                 )})
             ) }
+            </BigContainer>
+        
             
 
         </div>
