@@ -8,13 +8,14 @@ import axiosWithAuth from '../utils/axiosWithAuth'
 
 import axios from 'axios'
 
-import {useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 
- function Login(props) {
+function Login(props) {
     const history = useHistory();
     const { push } = history;
 
+    console.log(history)
 
     const initialState = {
         username: '',
@@ -69,19 +70,19 @@ import {useHistory } from 'react-router-dom'
     const handleSubmit = e => {
         e.preventDefault();
         axios
-        .post('https://postit-user-app.herokuapp.com/login', `grant_type=password&username=${credentials.username}&password=${credentials.password}`, {
-          headers: {
-            // btoa is converting our client id/client secret into base64
-            Authorization: `Basic ${btoa('lambda-client:lambda-secret')}`,
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        })
-        .then(res => {
-          console.log(res.data)
-          localStorage.setItem('token', res.data.access_token);
-          push('/profile');
-        })
-      }
+            .post('https://postit-user-app.herokuapp.com/login', `grant_type=password&username=${credentials.username}&password=${credentials.password}`, {
+                headers: {
+                    // btoa is converting our client id/client secret into base64
+                    Authorization: `Basic ${btoa('lambda-client:lambda-secret')}`,
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            })
+            .then(res => {
+                console.log(res.data)
+                localStorage.setItem('token', res.data.access_token);
+                push('/profile');
+            })
+    }
 
     return (
         <Container>

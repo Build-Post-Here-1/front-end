@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import * as yup from 'yup'
 
 import formSchema from '../formSchema'
@@ -8,6 +8,8 @@ import registerUser from './registerHandler'
 
 
 function Register(props) {
+
+    const history = useHistory()
 
     const initialState = {
         username: '',
@@ -20,6 +22,7 @@ function Register(props) {
     })
     const [credentials, setCredentials] = useState(initialState)
     const [disabled, setDisabled] = useState(true)
+    const [success, setSuccess] = useState('')
 
     //validate user input for every key stroke by user
     useEffect(() => {
@@ -65,6 +68,7 @@ function Register(props) {
         }
         registerUser(credentials)
         setCredentials(initialState)
+        history.push('/login')
     }
 
     return (
@@ -80,6 +84,7 @@ function Register(props) {
             <Errors>
                 {errorInfo.username.length > 0 ? <ErrorP>{errorInfo.username}</ErrorP> : null}
                 {errorInfo.password.length > 0 ? <ErrorP>{errorInfo.password}</ErrorP> : null}
+                {success.length > 0 && <p>Your account was successfully created</p>}
             </Errors>
             <Banner>
                 Already a member?  <Link to='/login'>Log in</Link>

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Banner = styled.div`
-background: linear-gradient(90deg, #FF4301 0%, #FACC96 100%);
+background: linear-gradient(90deg, #FF4301 0%, #ff972b  80%);
 color: #272727;
 padding: 1% 0;
 width: 100%;
@@ -11,14 +11,14 @@ align-content: center;
 
 
 `
-export const Container = styled.div `
+export const Container = styled.div`
 display: flex;
 justify-content: center;
 align-content:center;
 
 `
 
-export const Card = styled.div `
+export const Card = styled.div`
 display:flex;
 justify-content: center;
 align-content:center;
@@ -42,12 +42,12 @@ export const Input = styled.input`
     } 
 `
 
-export const Container2 = styled.div `
+export const Container2 = styled.div`
 display:flex;
 
 `
 
-export const Form = styled.form `
+export const Form = styled.form`
     padding: 2%;
     justify-content: center;
     align-self: center;
@@ -58,13 +58,13 @@ export const Form = styled.form `
 
 `
 
-export const Input2 = styled.input `
+export const Input2 = styled.input`
 
 margin: 1%;
 
 `
 
-export const Card2 = styled.div `
+export const Card2 = styled.div`
 box-sizing: border-box;
 display:flex;
 flex-direction: column;

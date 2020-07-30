@@ -32,7 +32,7 @@ export const Container = styled.div`
     }
 
     a {
-        color: #a877ff;
+        color: #068b96;
         text-decoration: none;
         font-weight: 500;
     }
@@ -104,7 +104,7 @@ export const Button = styled.button`
 `
 
 export const Banner = styled.div`
-    background: linear-gradient(90deg, #FF4301 0%, #FACC96  100%);
+    background: linear-gradient(90deg, #FF4301 0%, #ff972b  60%);
     color: #272727;
     padding: 1% 0;
     width: 100%;
