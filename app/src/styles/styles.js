@@ -53,15 +53,10 @@ export const Form = styled.form`
     align-self: center;
     align-content: center;
     padding-left: 28%;
-    
-    
-
 `
 
 export const Input2 = styled.input`
-
 margin: 1%;
-
 `
 
 export const Card2 = styled.div`
